@@ -29,29 +29,16 @@ int main(int, char **){
   SDL_Texture** fb_assets = FB_LoadAllTextures(renderer);
 
   // [game state]
-  Game *game = Game_Create(renderer);
+  Game *game = Game_Create(renderer,fb_assets);
 
-  int pipe_w = 52 , pipe_h =320;
-  SDL_Rect piperect = {.x = 0 , .y = WINDOW_H - pipe_h+20 , .w = pipe_w , .h=pipe_h};
-  // [event loop]
   SDL_Event e;
   while (!quit){
-    // event handling
+   // [event loop]
     while (SDL_PollEvent(&e)){
       if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
         goto cleanup;
     }
     Game_Update(game);
-    uint32_t width = 0, height = 0;
-    SDL_Rect rect = {.x = 0, .y = 0, .w = WINDOW_W, .h = WINDOW_H};
-
-    SDL_RenderClear(game->renderer);
-    SDL_RenderCopy(game->renderer, fb_assets[TextureBackgroundDay], NULL, &rect);
-    piperect.y = WINDOW_H - pipe_h +20 ;
-    SDL_RenderCopy(game->renderer, fb_assets[TexturePipeGreen], NULL, &piperect);
-    piperect.y =  -50;
-    SDL_RenderCopyEx(game->renderer,fb_assets[TexturePipeGreen],NULL,&piperect,0,NULL,SDL_FLIP_VERTICAL );
-    SDL_RenderPresent(game->renderer);
   }
 
   Game_Destroy(game);

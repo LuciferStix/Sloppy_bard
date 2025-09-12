@@ -1,5 +1,6 @@
-
 .vscode
+.gitignore
+git_token.txt
 
 test/
 # Object folder

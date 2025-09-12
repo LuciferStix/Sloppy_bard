@@ -1,3 +1,5 @@
+#ifndef __MACRO__
+#define __MACRO__
 
 #define LogError(...) \
     { \
@@ -12,3 +14,4 @@
     }
 
 
+#endif 
