@@ -1,13 +1,16 @@
-#include <stdio.h>
 #include <unistd.h>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-#include "include/game.h"
+
+
+
 #include "include/macro.h"
 #include "include/utils.h"
+#include "include/game.h"
 #include "include/texloaders.h"
+#include "include/constants.h"
 int main(int, char **){
   // game variable
   int ret = 0;

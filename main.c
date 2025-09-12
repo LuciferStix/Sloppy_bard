@@ -1,16 +1,17 @@
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
-#include <unistd.h>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
+#include <unistd.h>
 #include "include/game.h"
 #include "include/macro.h"
-#include "include/utils.h"
 #include "include/texloaders.h"
 #include "include/window.h"
-int main(int, char **){
+
+
+int main (){
 
   SDL_Window* win = NULL;
   SDL_Renderer* renderer = NULL;
@@ -23,9 +24,7 @@ int main(int, char **){
   }
 
   
-  // game variable
   int quit = 0;
-  // loading textures
   SDL_Texture** fb_assets = FB_LoadAllTextures(renderer);
 
   // [game state]
@@ -40,7 +39,6 @@ int main(int, char **){
     }
     Game_Update(game);
   }
-
   Game_Destroy(game);
 
 cleanup:

@@ -1,6 +1,8 @@
 #ifndef __MACRO__
 #define __MACRO__
 
+#include <stdio.h>
+
 #define LogError(...) \
     { \
     fprintf(stderr,"error in [func]:%d->%s\n" ,__LINE__, __FUNCTION__ ); \

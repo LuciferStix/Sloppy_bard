@@ -2,15 +2,13 @@
 #define __GAME_H__
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_render.h>
-
-#define WINDOW_W 400
-#define WINDOW_H 600
-
+#include "../include/pipe.h"
 typedef struct Game
 {
     SDL_Renderer *renderer;
     SDL_Texture** fb_assets;
-    uint16_t counter;
+    PipeConfig* pipes;
+    // uint16_t counter;
 } Game;
 
 Game *Game_Create(SDL_Renderer *,SDL_Texture**);
