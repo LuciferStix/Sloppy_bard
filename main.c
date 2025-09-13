@@ -1,3 +1,4 @@
+#include <SDL2/SDL_events.h>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
 
@@ -34,7 +35,7 @@ int main (){
   while (!quit){
    // [event loop]
     while (SDL_PollEvent(&e)){
-      if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
+      if (e.type == SDL_QUIT || (e.key.keysym.sym == SDLK_ESCAPE && e.key.type == SDL_KEYDOWN) )
         goto cleanup;
     }
     Game_Update(game);

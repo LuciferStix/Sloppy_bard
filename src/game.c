@@ -12,28 +12,23 @@ Game *Game_Create(SDL_Renderer *renderer,SDL_Texture** fb_assets)
   Game *game = (Game *)malloc(sizeof(Game));
   game->renderer = renderer;
   game->fb_assets = fb_assets;
-  game->pipes = PipeSpawn(1);
+  game->pipes = PipeSpawn();
   return game;
 }
 
 void Game_Destroy(Game *game)
 {
+    PipeDestroy(game->pipes);
     free(game);
 }
 
 void Game_Update(Game *game)
 {
-  /* game->counter+=2; */
-  /* printf("frame:%d\n", game->counter); */
   SDL_RenderClear(game->renderer);
   //background
   static SDL_Rect rect = {.x =0, .y = 0, .w = WINDOW_W, .h = WINDOW_H};
   SDL_RenderCopy(game->renderer, game->fb_assets[TextureBackgroundDay], NULL, &rect);
   
-  /* SpawnPipe()
-   * DrawPipe()
-   * MovePipe()
-   * */
   PipeDraw(game->pipes,game->renderer,game->fb_assets[TexturePipeGreen]);
   PipeMove(game->pipes);
   SDL_RenderPresent(game->renderer);
