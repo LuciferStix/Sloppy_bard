@@ -1,11 +1,8 @@
-#include <SDL2/SDL_events.h>
-#include <SDL2/SDL_rect.h>
-#include <SDL2/SDL_render.h>
-
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <unistd.h>
+
 #include "include/game.h"
 #include "include/macro.h"
 #include "include/texloaders.h"
@@ -24,7 +21,6 @@ int main (){
     exit(1);
   }
 
-  
   int quit = 0;
   SDL_Texture** fb_assets = FB_LoadAllTextures(renderer);
 
@@ -43,6 +39,7 @@ int main (){
   Game_Destroy(game);
 
 cleanup:
+
   if (game)
   {
     Game_Destroy(game);
@@ -64,6 +61,7 @@ cleanup:
     SDL_DestroyWindow(win);
     LogAction("Destroyed window \n");
   }
+
   IMG_Quit();
   TTF_Quit();
   SDL_Quit();

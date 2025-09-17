@@ -1,8 +1,6 @@
 #include<SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "../include/utils.h"
-#include "../include/game.h"
-#include"../include/macro.h"
 #include "../include/texloaders.h"
 static const char* pngFiles[_TextureCount_] = {
     "0.png",

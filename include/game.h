@@ -2,13 +2,19 @@
 #define __GAME_H__
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_render.h>
-#include "../include/pipe.h"
+
+#include "pipe.h"
+#include "base.h"
+#include "bird.h"
+
 typedef struct Game
 {
     SDL_Renderer *renderer;
     SDL_Texture** fb_assets;
     PipeConfig* pipes;
-    // uint16_t counter;
+    Base* base;
+    Bird* bird;
+    int8_t cooldown;
 } Game;
 
 Game *Game_Create(SDL_Renderer *,SDL_Texture**);

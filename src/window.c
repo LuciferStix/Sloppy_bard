@@ -2,9 +2,8 @@
 #include<SDL2/SDL_ttf.h>
 #include<SDL2/SDL_image.h>
 #include <SDL2/SDL_video.h>
-#include "../include/constants.h"
 
-#include"../include/game.h"
+#include "../include/constants.h"
 #include"../include/macro.h"
 
 
@@ -43,7 +42,7 @@ int FB_CreateWindow(SDL_Window** win,SDL_Renderer** renderer , TTF_Font** font){
     SDL_WINDOWPOS_UNDEFINED,
     SDL_WINDOWPOS_UNDEFINED,
     WINDOW_W,
-    WINDOW_H,
+    WINDOW_H + BASE_HEIGHT,
     SDL_WINDOW_RESIZABLE);
 
   if (!*win)
